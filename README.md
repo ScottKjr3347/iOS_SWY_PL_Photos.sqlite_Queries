@@ -26,7 +26,7 @@ The file system storage locations for the assets listed in the Shared with You P
 
 •	\private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\originals\
 •	\private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\
-•	\private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\masters\
+•    \private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\masters\
 
 The following file system locations store only some of the assets and can be found in a Logical / iTunes backup acquisition:
 
