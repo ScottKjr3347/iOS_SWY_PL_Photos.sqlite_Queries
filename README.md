@@ -24,8 +24,8 @@ This new Shared with You Photo Library Photos.sqlite database can be found at th
 
 The file system storage locations for the assets listed in the Shared with You Photos.sqlite can be found at the following locations only after a full file system acquisition.
 
-•	\private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\originals\
-•	\private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\
+•    \private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\originals\
+•    \private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\
 •    \private\var\mobile\Library\Photos\Libraries\Syndication.photoslibrary\scopes\syndication\resources\derivatives\masters\
 
 The following file system locations store only some of the assets and can be found in a Logical / iTunes backup acquisition:
