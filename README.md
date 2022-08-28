@@ -1,9 +1,9 @@
 # iOS_Shared_with_You_Photo_Library_Photos.sqlite_Queries
 iOS Shared with You Photo Library Photos.sqlite queries
 
-[Shared with You is a new feature] (https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operation Systems that allows a user to easily view and interact with items that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require an iCloud account. 
+[Shared with You is a new feature](https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operation Systems that allows a user to easily view and interact with items that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require an iCloud account. 
 
-Shared assets are presented to the user on a device based on Apple data processing of those shared assets. [Currently this includes] (https://support.apple.com/en-us/HT212721) items like:
+Shared assets are presented to the user on a device based on Apple data processing of those shared assets. [Currently this includes](https://support.apple.com/en-us/HT212721) items like:
 •	Shared Music links
 •	Apple TV links
 •	Safari Links
@@ -14,7 +14,7 @@ Shared assets are presented to the user on a device based on Apple data processi
      
 My initial research, which has been published via a blog can be found here and focuses on the Shared with You messages media attachments. While conducting this research, I learned within the creation of this new Shared with You feature, Apple created a new Shared with You Photo Library that consists of new file system asset storage location, a new Photos.sqlite database and much, much more! 
 
-Even though this database is very similar to the [Local Photo Library] (https://developer.apple.com/videos/play/wwdc2021/10046/) Photos.sqlite database, there are slight differences and I have created a new set of queries to parse the data from the database. Based on what I’ve observed during research, testing, and Apple Development documentation this Shared with You feature can be found starting in iOS 15.0.
+Even though this database is very similar to the [Local Photo Library](https://developer.apple.com/videos/play/wwdc2021/10046/) Photos.sqlite database, there are slight differences and I have created a new set of queries to parse the data from the database. Based on what I’ve observed during research, testing, and Apple Development documentation this Shared with You feature can be found starting in iOS 15.0.
 
 Currently, I have only tested and researched this artifact via several different iPhones and the iOS operating system.
 
