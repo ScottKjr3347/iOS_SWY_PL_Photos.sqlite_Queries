@@ -1,7 +1,7 @@
 # iOS_Shared_with_You_Photo_Library_Photos.sqlite_Queries
 iOS Shared with You Photo Library Photos.sqlite queries
 
-[Shared with You is a new feature](https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operation Systems that allows a user to easily view and interact with items that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require an iCloud account. 
+[Shared with You is a new feature](https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operating Systems that allows a user to easily view and interact with items that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require an iCloud account. 
 
 Shared assets are presented to the user on a device based on Apple data processing of those shared assets. [Currently this includes](https://support.apple.com/en-us/HT212721) items like:
 •	Shared Music links
