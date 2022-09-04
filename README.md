@@ -1,9 +1,9 @@
 # iOS Shared with You (SWY) Photo Library (PL) Photos.sqlite Queries
 iOS Shared with You (SWY) Photo Library (PL) Photos.sqlite queries for iOS 15 and iOS 16
 
-[Shared with You is a new feature] (https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operating Systems that allows a user to easily view and interact with links that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require a user to have an iCloud account.
+[Shared with You is a new feature](https://developer.apple.com/videos/play/wwdc2022/10094/) within iOS and other Apple Operating Systems that allows a user to easily view and interact with links that have been shared by other users. This feature does not require users to be signed into a device with an Apple ID, nor does it require a user to have an iCloud account.
 
-Shared assets/links are presented to the user on a device after Apple OS has processed the shared assets/links and Apple OS determines the user might want to easily view those shared assets/links. [Currently this includes] (https://support.apple.com/en-us/HT212721) items like:
+Shared assets/links are presented to the user on a device after Apple OS has processed the shared assets/links and Apple OS determines the user might want to easily view those shared assets/links. [Currently this includes](https://support.apple.com/en-us/HT212721) items like:
 •	Shared Music links
 •	Apple TV links
 •	Safari Links
