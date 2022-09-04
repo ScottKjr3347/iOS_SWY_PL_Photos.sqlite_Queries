@@ -14,7 +14,7 @@ Shared assets/links are presented to the user on a device after Apple OS has pro
      
 My initial research, which will be published via a blog can be found here and focuses on the Messages application and the media attachments that are presented to a user on the device as a Shared with You asset. While conducting this research, I learned within this feature, Apple created a new Shared with You Photo Library that consists of new file system asset storage locations, a new Photos.sqlite database and much, much more! 
 
-Even though this new Photos.sqlite database is very similar to the [Local Photo Library] (https://developer.apple.com/videos/play/wwdc2021/10046/) Photos.sqlite database, there are slight differences. Based on my research, I have created a new set of queries to parse the data from the databases. Based on what I’ve observed during research, testing, and Apple Development documentation Shared with You feature can be found starting with iOS 15.0.
+Even though this new Photos.sqlite database is very similar to the [Local Photo Library](https://developer.apple.com/videos/play/wwdc2021/10046/) Photos.sqlite database, there are slight differences. Based on my research, I have created a new set of queries to parse the data from the databases. Based on what I’ve observed during research, testing, and Apple Development documentation Shared with You feature can be found starting with iOS 15.0.
 
 Currently, I have only tested and researched this artifact via different iPhone models and different versions of the iOS operating system. I have not researched this feature, file system storage or database activity on MacBook’s, Mac OS, or any other Apple operating systems.
 
