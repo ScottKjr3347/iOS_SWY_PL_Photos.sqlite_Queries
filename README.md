@@ -16,7 +16,7 @@ Apple discusses the Shared with You feature allows Shared assets\links to be pre
      
 My initial research, which has been published via a blog here, focuses on the Messages application and the media attachments that are presented to a user on the device as a Shared with You assets. While conducting this research, I learned Apple created a new Shared with You Syndication Photo Library. This library consists of new file system asset storage locations, a new Photos.sqlite database and much, much more! Within this write up, I will reference this photo library as the Shared with You Syndication Photo Library (SWY PL).
 
-Even though this new Shared with You Syndication Photo Library Photos.sqlite database is very similar to the [Local Photo Library](https:\\developer.apple.com\videos\play\wwdc2021\10046\) Photos.sqlite database, there are some slight differences. Based on my research, I’ve created a new set of queries to parse the data from this new Photo Library (PL) database. I have found the Shared with You Syndication Photo Library assets in devices with iOS 15.
+Even though this new Shared with You Syndication Photo Library Photos.sqlite database is very similar to the [Local Photo Library](https:\\developer.apple.com\videos\play\wwdc2021\10046) Photos.sqlite database, there are some slight differences. Based on my research, I’ve created a new set of queries to parse the data from this new Photo Library (PL) database. I have found the Shared with You Syndication Photo Library assets in devices with iOS 15.
 
 Currently, I have only tested and researched this artifact via different iPhone models and different iOS versions. I have not completed any research about this feature within any other Apple operating systems.
 
