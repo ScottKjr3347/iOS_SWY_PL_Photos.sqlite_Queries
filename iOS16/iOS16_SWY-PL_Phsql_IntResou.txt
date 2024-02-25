@@ -17,7 +17,7 @@ SELECT zAsset.ZSORTTOKEN AS 'zAsset-Sort Token',
   zAsset.ZCLOUDASSETGUID AS 'zAsset-Cloud_Asset_GUID = store.cloudphotodb',
   zAsset.ZCLOUDCOLLECTIONGUID AS 'zAsset.Cloud Collection GUID',
   zCldMast.ZCLOUDMASTERGUID AS 'zCldMast-Cloud_Master_GUID = store.cloudphotodb',
-  zGenAlbum.ZCLOUDGUID AS 'zGenAlbum-Cloud_GUID = store.cloudphotodb',
+  zGenAlbumConvers.ZCLOUDGUID AS 'zGenAlbumConvers-Cloud_GUID = store.cloudphotodb',
   zShare.ZSCOPEIDENTIFIER AS 'zShare-Scope ID = store.cloudphotodb',
   zAddAssetAttr.ZORIGINALASSETSUUID AS 'zAddAssetAttr-Original Assets UUID',
   zAddAssetAttr.ZPUBLICGLOBALUUID AS 'zAddAssetAttr-Public Global UUID',
@@ -28,25 +28,18 @@ SELECT zAsset.ZSORTTOKEN AS 'zAsset-Sort Token',
   zAddAssetAttr.ZADJUSTEDFINGERPRINT AS 'zAddAssetAttr.Adjusted Fingerprint',
   zUnmAdj.ZOTHERADJUSTMENTSFINGERPRINT AS 'zUnmAdj-Other Adjustments Fingerprint',
   zUnmAdj.ZSIMILARTOORIGINALADJUSTMENTSFINGERPRINT AS 'zUnmAdj-Similar to Orig Adjustments Fingerprint',
-  zGenAlbum.Z_PK AS 'zGenAlbum-zPK= zAsset-Conversationkey -4QueryStart',
-  zAsset.ZCONVERSATION AS 'zAsset- Conversationkey= zGenAlbum-zPK - 4QueryStart',
-  CASE ParentzGenAlbum.ZCLOUDLOCALSTATE
-    WHEN 0 THEN '0-iCldPhotos-ON=Asset_In_Shared/Other-Album/iCldPhotos-OFF=Generic_Album-0'
-    WHEN 1 THEN '1-iCldPhotos-ON=Asset_In_Generic Album-1'
-    ELSE 'Unknown-New-Value!: ' || ParentzGenAlbum.ZCLOUDLOCALSTATE || ''
-  END AS 'ParentzGenAlbum- Cloud Local State- 4QueryStart',
-  ParentzGenAlbum.ZTITLE AS 'ParentzGenAlbum Title- 4QueryStart',
-  CASE zGenAlbum.ZCLOUDLOCALSTATE
+  zGenAlbumConvers.Z_PK AS 'zGenAlbumConvers-zPK= zAsset-Conversationkey -4QueryStart',
+  zAsset.ZCONVERSATION AS 'zAsset- Conversationkey= zGenAlbumConvers-zPK - 4QueryStart',
+  CASE zGenAlbumConvers.ZCLOUDLOCALSTATE
     WHEN 0 THEN '0-iCldPhotos-ON=Asset_In_Shared/Other-Album/iCldPhotos-OFF=Generic_Album-0'
     WHEN 1 THEN '1-iCldPhotos-ON=Asset_In_Generic_ Album-1'
-    ELSE 'Unknown-New-Value!: ' || zGenAlbum.ZCLOUDLOCALSTATE || ''
-  END AS 'zGenAlbum- Cloud Local State- 4QueryStart',
-  DateTime(ParentzGenAlbum.ZCREATIONDATE + 978307200, 'UNIXEPOCH') AS 'ParentzGenAlbum- Creation Date- 4QueryStart',
-  DateTime(zGenAlbum.ZCREATIONDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbum- Creation Date- 4QueryStart',
-  DateTime(zGenAlbum.ZSTARTDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbum-Start Date - 4QueryStart',
-  DateTime(zGenAlbum.ZENDDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbum-End Date - 4QueryStart',
-  zGenAlbum.ZSYNDICATE AS 'zGenAlbum-zSyndicate- 4QueryStart',
-  CASE zGenAlbum.ZKIND
+    ELSE 'Unknown-New-Value!: ' || zGenAlbumConvers.ZCLOUDLOCALSTATE || ''
+  END AS 'zGenAlbumConvers- Cloud Local State- 4QueryStart',
+  DateTime(zGenAlbumConvers.ZCREATIONDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbumConvers- Creation Date- 4QueryStart',
+  DateTime(zGenAlbumConvers.ZSTARTDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbumConvers-Start Date - 4QueryStart',
+  DateTime(zGenAlbumConvers.ZENDDATE + 978307200, 'UNIXEPOCH') AS 'zGenAlbumConvers-End Date - 4QueryStart',
+  zGenAlbumConvers.ZSYNDICATE AS 'zGenAlbumConvers-zSyndicate- 4QueryStart',
+  CASE zGenAlbumConvers.ZKIND
     WHEN 2 THEN '2-Local Device-iCloud Photos Album-2'
     WHEN 1505 THEN '1505-Shared Album-1505'
     WHEN 1506 THEN '1506-Import_Session_AssetsImportedatSameTime-1506_RT'
@@ -90,11 +83,11 @@ SELECT zAsset.ZSORTTOKEN AS 'zAsset-Sort Token',
     WHEN 4001 THEN '4001-StillTesting'
     WHEN 4002 THEN '4002-StillTesting'
     WHEN 4003 THEN '4003-StillTesting'
-    ELSE 'Unknown-New-Value!: ' || zGenAlbum.ZKIND || ''
-  END AS 'zGenAlbum-Album Kind- 4QueryStart',
-  zGenAlbum.ZIMPORTSESSIONID AS 'zGenAlbum-Import Session ID- 4QueryStart',
-  zGenAlbum.ZTITLE AS 'zGenAlbum- Title- 4QueryStart',
-  zGenAlbum.ZUUID AS 'zGenAlbum-UUID- 4QueryStart',
+    ELSE 'Unknown-New-Value!: ' || zGenAlbumConvers.ZKIND || ''
+  END AS 'zGenAlbumConvers-Album Kind- 4QueryStart',
+  zGenAlbumConvers.ZIMPORTSESSIONID AS 'zGenAlbumConvers-Import Session ID- 4QueryStart',
+  zGenAlbumConvers.ZTITLE AS 'zGenAlbumConvers- Title- 4QueryStart',
+  zGenAlbumConvers.ZUUID AS 'zGenAlbumConvers-UUID- 4QueryStart',
   CASE zAsset.ZBUNDLESCOPE
     WHEN 0 THEN '0-iCldPhotos-ON=Not-In-Shared-Album_iCldPhotos-OFF=On-Local-Device-0'
     WHEN 1 THEN '1-SWY-Syndication_CMMAsset-1'
@@ -738,12 +731,10 @@ FROM ZASSET zAsset
   LEFT JOIN ZEXTENDEDATTRIBUTES zExtAttr ON zExtAttr.Z_PK = zAsset.ZEXTENDEDATTRIBUTES
   LEFT JOIN ZINTERNALRESOURCE zIntResou ON zIntResou.ZASSET = zAsset.Z_PK
   LEFT JOIN ZSCENEPRINT zSceneP ON zSceneP.Z_PK = zAddAssetAttr.ZSCENEPRINT
-  LEFT JOIN Z_28ASSETS z28Assets ON z28Assets.Z_3ASSETS = zAsset.Z_PK
-  LEFT JOIN ZGENERICALBUM zGenAlbum ON zGenAlbum.Z_PK = zAsset.ZCONVERSATION
+  LEFT JOIN ZGENERICALBUM zGenAlbumConvers ON zGenAlbumConvers.Z_PK = zAsset.ZCONVERSATION
   LEFT JOIN ZUNMANAGEDADJUSTMENT zUnmAdj ON zAddAssetAttr.ZUNMANAGEDADJUSTMENT = zUnmAdj.Z_PK
-  LEFT JOIN Z_27ALBUMLISTS z27AlbumLists ON z27AlbumLists.Z_27ALBUMS = zGenAlbum.Z_PK
+  LEFT JOIN Z_27ALBUMLISTS z27AlbumLists ON z27AlbumLists.Z_27ALBUMS = zGenAlbumConvers.Z_PK
   LEFT JOIN ZALBUMLIST zAlbumList ON zAlbumList.Z_PK = z27AlbumLists.Z_2ALBUMLISTS
-  LEFT JOIN ZGENERICALBUM ParentzGenAlbum ON ParentzGenAlbum.Z_PK = zGenAlbum.ZPARENTFOLDER
   LEFT JOIN ZCLOUDMASTER zCldMast ON zAsset.ZMASTER = zCldMast.Z_PK
   LEFT JOIN ZCLOUDMASTERMEDIAMETADATA AAAzCldMastMedData ON AAAzCldMastMedData.Z_PK = zAddAssetAttr.ZMEDIAMETADATA
   LEFT JOIN ZCLOUDMASTERMEDIAMETADATA CMzCldMastMedData ON CMzCldMastMedData.Z_PK = zCldMast.ZMEDIAMETADATA
